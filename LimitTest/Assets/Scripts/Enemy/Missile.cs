@@ -14,7 +14,7 @@ public class Missile : MonoBehaviour
        [Header("Shooting")]
     //shooting
     
-    public float fireRate = 1f; //1 bullet each sec
+    public float fireRate = 0.01f; //1 bullet each sec
     float fireCountDown = 0f;
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -75,7 +75,7 @@ public class Missile : MonoBehaviour
 
     }
     void Shoot(){
-       GameObject BulletGO = (GameObject) Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);
+       GameObject BulletGO = (GameObject) Instantiate (bulletPrefab, firePoint.position, Quaternion.Euler(-90, firePoint.transform.rotation.eulerAngles.y ,-90));
        Bullet bullet = BulletGO.GetComponent<Bullet>();
 
        if(bullet != null){
