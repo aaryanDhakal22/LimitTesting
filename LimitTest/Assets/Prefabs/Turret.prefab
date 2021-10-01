@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2015220375317862800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5797637267429776469}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5797637267429776469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015220375317862800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.163, y: 0.555, z: 2.463}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2323174708219013486}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3461141414201700446
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +138,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3602312484107136841}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.261, y: 0.18, z: 0.56065}
   m_LocalScale: {x: 0.7511219, y: 0.7681556, z: 0.8474142}
   m_Children:
@@ -131,6 +161,9 @@ MonoBehaviour:
   range: 15
   PlayerTag: Player
   partToRotate: {fileID: 2323174708219013486}
+  fireRate: 1
+  bulletPrefab: {fileID: 6743472974164753336, guid: b67a68bdb66063c4e81ccb8c1fced1d2, type: 3}
+  firePoint: {fileID: 0}
 --- !u!65 &3602312484107136855
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -255,6 +288,7 @@ Transform:
   m_Children:
   - {fileID: 5984499736878202215}
   - {fileID: 52622098554691372}
+  - {fileID: 5797637267429776469}
   m_Father: {fileID: 4230618046392792563}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
