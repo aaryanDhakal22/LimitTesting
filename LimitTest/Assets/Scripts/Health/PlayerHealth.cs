@@ -32,4 +32,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += heal;
         HealthSlider.value = currentHealth;
     }
+
+    public void DecreaseHealth(float decrease){
+        currentHealth -= decrease;
+        HealthSlider.value = currentHealth;
+    }
 }
