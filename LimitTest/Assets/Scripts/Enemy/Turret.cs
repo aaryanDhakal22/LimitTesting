@@ -4,20 +4,12 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+
     private Transform target;
-
-    [Header("Range and Fire")]
     public float range = 15f;
-
-    /* //shooting
-    public float fireRate = 1f;
-    float fireCountDown = 0f; */
-
-    [Header("Player setup")]
     public string PlayerTag = "Player";
 
-    //rotation
-    public Transform RotatingPart;
+    public Transform partToRotate;
 
 
 
@@ -28,26 +20,26 @@ public class Turret : MonoBehaviour
     }
 
     void UpdateTarget(){
-        GameObject[] players = GameObject.FindGameObjectsWithTag(PlayerTag);
 
+        GameObject[] players = GameObject.FindGameObjectsWithTag(PlayerTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestPlayer = null;
 
-        //find player
-        foreach (GameObject player in players){
-            float distanceToPLayer = Vector3.Distance(transform.position, player.transform.position);
 
-            if(distanceToPLayer < shortestDistance){
-                shortestDistance = distanceToPLayer;
+        foreach (GameObject player in players){
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if(distanceToPlayer < shortestDistance ){
+                shortestDistance = distanceToPlayer;
                 nearestPlayer = player;
             }
         }
 
-        if (nearestPlayer != null && shortestDistance <= range){
+        if(nearestPlayer != null && shortestDistance <= range){
             target = nearestPlayer.transform;
-        }else{
+        } else{
             target = null;
         }
+
     }
 
     // Update is called once per frame
@@ -56,17 +48,16 @@ public class Turret : MonoBehaviour
         if(target == null){
             return;
         }
-        
-        //rotate the turret 
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookAround = Quaternion.LookRotation(dir);
-        Vector3 rotation = lookAround.eulerAngles;
-        RotatingPart.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
+          Vector3 dir = target.position - transform.position;
+          Quaternion lookRotation = Quaternion.LookRotation(dir);
+          Vector3 rotation = lookRotation.eulerAngles;
+          partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
     }
-         private void OnDrawGizmosSelected() {
+
+    private void OnDrawGizmosSelected() {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, range); 
     }
 }
