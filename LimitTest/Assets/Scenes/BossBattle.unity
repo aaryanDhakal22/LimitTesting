@@ -273,6 +273,7 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 100
   HealthSlider: {fileID: 457062744}
+Player
 --- !u!1 &195211865
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +306,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+ master
 --- !u!1001 &413168357
 PrefabInstance:
   m_ObjectHideFlags: 0
