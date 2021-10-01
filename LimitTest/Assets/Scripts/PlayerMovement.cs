@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = new Vector3(horizontal, 0f, vertical);
+       // Vector3 move = new Vector3(horizontal, 0f, vertical);
+       Vector3 move = transform.right * horizontal + transform.forward * vertical;
 
         //jump & gravity
 
